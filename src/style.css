@@ -1,3 +1,87 @@
-body{
-    font-family: 'Roboto', sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+i {
+  color: #38598b;
+}
+
+.card {
+  border: 2px solid #d3d6db;
+  border-radius: 10px;
+}
+
+.weather-watch-card-body {
+  background: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+/* header section of app */
+.header {
+  margin: 20px;
+  text-align: center;
+}
+
+/* search section of app */
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#search-bar-input,
+#search-btn {
+  border: 1px solid #d3d6db;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 10px 15px;
+  width: 50%;
+}
+
+#search-btn {
+  /* background-color: #DDE9FA; */
+  /* background-color: white; */
+  border: 1px solid #38598b;
+  color: #38598b;
+  margin-left: 5px;
+  transition: all 150ms ease-in-out;
+  width: 15%;
+}
+
+#search-btn:hover {
+  background-color: #7aa5d2;
+  color: white;
+}
+
+/* current conditions section of app */
+
+.current-conditions {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.current-conditions .row {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 3fr 1fr 0.5fr;
+  line-height: 1.5;
+}
+
+.current-conditions-description {
+  font-family: "Playpen Sans", cursive;
+}
+
+/* forecast section of app */
+
+/* footer section of app */
