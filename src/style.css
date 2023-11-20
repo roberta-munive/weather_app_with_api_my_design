@@ -50,8 +50,6 @@ i {
 }
 
 #search-btn {
-  /* background-color: #DDE9FA; */
-  /* background-color: white; */
   border: 1px solid #38598b;
   color: #38598b;
   margin-left: 5px;
@@ -60,8 +58,9 @@ i {
 }
 
 #search-btn:hover {
-  background-color: #7aa5d2;
+  background-color: #38598b;
   color: white;
+  cursor: pointer;
 }
 
 /* current conditions section of app */
@@ -88,6 +87,12 @@ i {
 
 .current-conditions-description {
   font-family: "Newsreader", serif;
+}
+
+.degree-unit {
+  font-size: 14px;
+  position: relative;
+  top: -7px;
 }
 
 /* forecast section of app */
