@@ -78,10 +78,25 @@ i {
   line-height: 1.5;
 }
 
+.current-conditions-row-1 {
+  margin-top: 30px;
+}
+
+.current-conditions-row-4 {
+  margin-bottom: 20px;
+}
+
 .current-conditions-description {
-  font-family: "Playpen Sans", cursive;
+  font-family: "Newsreader", serif;
 }
 
 /* forecast section of app */
 
 /* footer section of app */
+
+footer {
+  font-size: 12px;
+  margin: 20px;
+  opacity: 0.7;
+  text-align: center;
+}
