@@ -24,6 +24,8 @@ function displayCurrentWeatherConditions(response) {
     "#current-temperature"
   );
   currentTemperatureLocator.innerHTML = currentTemperature;
+
+  //remove hardcoded current weather conditions from HTML
 }
 
 function getCity(event) {
@@ -41,8 +43,9 @@ function getCurrentWeatherConditions(city) {
   axios.get(apiUrl).then(displayCurrentWeatherConditions);
 }
 
+let defaultCity = "Paris";
+getCurrentWeatherConditions(defaultCity);
+
 let searchBarLocator = document.querySelector("#search-bar");
 
 searchBarLocator.addEventListener("submit", getCity);
-
-// add default city display of current conditions
