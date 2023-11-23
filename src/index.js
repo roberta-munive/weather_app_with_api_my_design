@@ -38,20 +38,26 @@ function displayCurrentWeatherConditions(response) {
 
 function formatAndDisplayDateAndTime(timeStamp) {
   // reference: https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
-  
+
   // Need to multiply by 1000 so that the argument is in milliseconds, not seconds
   let dateAndTimeStr = new Date(timeStamp * 1000);
-  let dateOfMonth = dateAndTimeStr.getDate();
   let dayOfWeek = dateAndTimeStr.getDay();
-  let month = dateAndTimeStr.getMonth();
 
-  //https://stackoverflow.com/questions/24086741/remove-seconds-from-tolocaletimestring
-  let currentTime = dateAndTimeStr.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+  //convert time to the format 6:53 PM
+  let timeOptions = { hour: "numeric", minute: "2-digit", hour12: true };
+  let dateOptions = { month: "long", day: "numeric" };
+  let currentTime = new Intl.DateTimeFormat("en-US", timeOptions).format(
+    dateAndTimeStr
+  );
+  let currentDate = new Intl.DateTimeFormat("en-US", dateOptions).format(
+    dateAndTimeStr
+  );
 
-  let dateOfMonthLocator = document.querySelector("#current-date-of-month");
+  //convert time to the format 6:53 PM
+
+  let dateLocator = document.querySelector("#current-date");
   let dayOfWeekLocator = document.querySelector("#current-day-of-week");
   let currentTimeLocator = document.querySelector("#current-time");
-
 
   let days = [
     "Sunday",
@@ -62,13 +68,10 @@ function formatAndDisplayDateAndTime(timeStamp) {
     "Friday",
     "Saturday",
   ];
+
   dayOfWeekLocator.innerHTML = days[dayOfWeek];
-  dateOfMonthLocator.innerHTML = dateOfMonth;
+  dateLocator.innerHTML = currentDate;
   currentTimeLocator.innerHTML = currentTime;
-
-
-
-
 }
 
 function getCity(event) {
