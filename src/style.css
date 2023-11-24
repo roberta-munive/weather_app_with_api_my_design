@@ -87,6 +87,7 @@ i {
 
 .current-conditions-description {
   font-family: "Newsreader", serif;
+  /* font-style: italic; */
 }
 
 .degree-unit {

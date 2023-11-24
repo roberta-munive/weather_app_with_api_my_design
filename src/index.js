@@ -11,6 +11,12 @@ function capitalizeFirstLetterOfWordsInString(str) {
   return word_array.join(" ");
 }
 
+function capitalizeFirstLetterOfFirstWordInString(str) {
+  str = str.toLowerCase().trim();
+  str = str[0].toUpperCase() + str.substring(1);
+  return str;
+}
+
 function displayCityName(city) {
   // city = capitalizeFirstLetterOfWordsInString(city);
   let currentCityLocator = document.querySelector("#current-city");
@@ -18,46 +24,65 @@ function displayCityName(city) {
 }
 
 function displayCurrentWeatherConditions(response) {
-  // pull data from api
   let city = response.data.city;
+  displayCityName(city);
+
   let currentTemperature = response.data.temperature.current;
   let currentTemperatureLocator = document.querySelector(
     "#current-temperature"
   );
+  currentTemperature = Math.round(currentTemperature);
+  currentTemperatureLocator.innerHTML = currentTemperature;
+
+  // currentDateAndTime is returned as a number in the form 1700844736.  Need to reformat
   let currentDateAndTime = response.data.time;
   formatAndDisplayDateAndTime(currentDateAndTime);
 
-  currentTemperature = Math.round(currentTemperature);
+  let currentFeelsLikeTemperature = response.data.temperature.feels_like;
+  let currentFeelsLikeTemperatureLocator = document.querySelector(
+    "#current-feels-like-temperature"
+  );
+  currentFeelsLikeTemperature = Math.round(currentFeelsLikeTemperature);
+  currentFeelsLikeTemperatureLocator.innerHTML = `${currentFeelsLikeTemperature}°`;
 
-  //display data
-  displayCityName(city);
-  currentTemperatureLocator.innerHTML = currentTemperature;
+  let currentWindSpeed = response.data.wind.speed;
+  let currentWindSpeedLocator = document.querySelector("#current-wind-speed");
+  currentWindSpeed = Math.round(currentWindSpeed);
+  currentWindSpeedLocator.innerHTML = `${currentWindSpeed} mph`;
 
-  //remove hardcoded current weather conditions from HTML
+  let currentConditionsDescription = response.data.condition.description;
+  currentConditionsDescription = capitalizeFirstLetterOfFirstWordInString(
+    currentConditionsDescription
+  );
+  let currentConditionsDescriptionLocator = document.querySelector(
+    "#current-conditions-description"
+  );
+  currentConditionsDescriptionLocator.innerHTML = currentConditionsDescription;
 }
 
 function formatAndDisplayDateAndTime(timeStamp) {
   // reference: https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
 
-  // Need to multiply by 1000 so that the argument is in milliseconds, not seconds
+  // Need to multiply timestamp by 1000 so that the argument is in milliseconds, not seconds
   let dateAndTimeStr = new Date(timeStamp * 1000);
-  let dayOfWeek = dateAndTimeStr.getDay();
 
-  //convert time to the format 6:53 PM
+  // Convert time to the format 6:53 PM
   let timeOptions = { hour: "numeric", minute: "2-digit", hour12: true };
-  let dateOptions = { month: "long", day: "numeric" };
   let currentTime = new Intl.DateTimeFormat("en-US", timeOptions).format(
     dateAndTimeStr
   );
+  let currentTimeLocator = document.querySelector("#current-time");
+  currentTimeLocator.innerHTML = currentTime;
+
+  // Convert date to the format October 24
+  let dateOptions = { month: "long", day: "numeric" };
   let currentDate = new Intl.DateTimeFormat("en-US", dateOptions).format(
     dateAndTimeStr
   );
-
-  //convert time to the format 6:53 PM
-
   let dateLocator = document.querySelector("#current-date");
-  let dayOfWeekLocator = document.querySelector("#current-day-of-week");
-  let currentTimeLocator = document.querySelector("#current-time");
+  dateLocator.innerHTML = currentDate;
+
+  // Day of week is returned as a number 0 through 6.  Convert to full length word
 
   let days = [
     "Sunday",
@@ -69,9 +94,9 @@ function formatAndDisplayDateAndTime(timeStamp) {
     "Saturday",
   ];
 
+  let dayOfWeek = dateAndTimeStr.getDay();
+  let dayOfWeekLocator = document.querySelector("#current-day-of-week");
   dayOfWeekLocator.innerHTML = days[dayOfWeek];
-  dateLocator.innerHTML = currentDate;
-  currentTimeLocator.innerHTML = currentTime;
 }
 
 function getCity(event) {
