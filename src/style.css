@@ -77,8 +77,18 @@ i {
   line-height: 1.5;
 }
 
+#current-conditions-icon{
+  height: 55px;
+  left: -10px;
+  position: relative;
+  width: 55px;
+}
+
 .current-conditions-row-1 {
+  align-items:center;
+  line-height: 60px;
   margin-top: 30px;
+  
 }
 
 .current-conditions-row-4 {

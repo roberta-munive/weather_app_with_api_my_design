@@ -58,6 +58,12 @@ function displayCurrentWeatherConditions(response) {
     "#current-conditions-description"
   );
   currentConditionsDescriptionLocator.innerHTML = currentConditionsDescription;
+
+  let currentConditionsIcon = response.data.condition.icon_url;
+  let currentConditionsIconLocator = document.querySelector(
+    "#current-conditions-icon"
+  );
+  currentConditionsIconLocator.src = currentConditionsIcon;
 }
 
 function formatAndDisplayDateAndTime(timeStamp) {
