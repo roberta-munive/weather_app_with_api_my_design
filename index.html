@@ -31,23 +31,27 @@
           <input
             type="search"
             name="search-bar-input"
+            class="search-bar-input"
             id="search-bar-input"
             placeholder="Enter a city"
             required />
-          <button type="submit" id="search-btn">Search</button>
+          <button type="submit" class="search-btn" id="search-btn">
+            Search
+          </button>
         </form>
-
+        <hr />
         <!-- current conditions section -->
 
         <div class="current-conditions">
           <div class="current-conditions-left-side">
-            <h1 id="current-city">Paris</h1>
-            <p>
+            <h1 class="current-city" id="current-city">Paris</h1>
+            <p class="current-date-time">
               <span id="current-day-of-week">Tuesday</span>,
               <span id="current-date">October 24</span>,
               <span id="current-time">6:53pm</span>
             </p>
             <img
+              class="current-conditions-icon"
               id="current-conditions-icon"
               src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" />
             <p
@@ -60,13 +64,14 @@
             </p>
           </div>
           <div class="current-conditions-right-side">
-            <span id="current-temperature">19</span
+            <span class="current-temperature" id="current-temperature">19</span
             ><span class="degree-unit">°F</span>
             <p class="current-feels-like-temperature">
               Feels like: <span id="current-feels-like-temperature">85°</span>
             </p>
           </div>
         </div>
+        <hr />
 
         <!-- forecast section  -->
 

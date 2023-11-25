@@ -11,6 +11,12 @@ body {
   padding: 20px;
 }
 
+hr {
+  border-color: #d3d6db;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .card {
   border: 2px solid #d3d6db;
   border-radius: 10px;
@@ -20,6 +26,7 @@ body {
   background: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   margin: 40px auto;
   max-width: 800px;
+  padding: 30px;
 }
 
 /* search section of app */
@@ -30,8 +37,8 @@ body {
   margin: 20px;
 }
 
-#search-bar-input,
-#search-btn {
+.search-bar-input,
+.search-btn {
   border: 1px solid #d3d6db;
   border-radius: 6px;
   font-size: 16px;
@@ -39,7 +46,7 @@ body {
   width: 50%;
 }
 
-#search-btn {
+.search-btn {
   border: 1px solid #38598b;
   color: #38598b;
   margin-left: 5px;
@@ -47,7 +54,7 @@ body {
   width: 15%;
 }
 
-#search-btn:hover {
+.search-btn:hover {
   background-color: #38598b;
   color: white;
   cursor: pointer;
@@ -55,8 +62,8 @@ body {
 
 /* current conditions section of app */
 
-#current-city {
-  font-size: 40px;
+.current-city {
+  font-size: 44px;
 }
 
 .current-conditions {
@@ -67,7 +74,7 @@ body {
   width: 75%;
 }
 
-#current-conditions-icon {
+.current-conditions-icon {
   height: 80px;
   position: relative;
   left: -15px;
@@ -78,22 +85,27 @@ body {
   /* font-family: "Newsreader", serif; */
   /* font-style: italic; */
   font-size: 32px;
+  margin-top: 5px;
+}
+
+.current-date-time{
+  opacity: 0.7;
+  margin-bottom: 10px;
 }
 
 .current-feels-like-temperature {
   opacity: 0.7;
   text-align: center;
-
 }
 
-#current-temperature {
+.current-temperature {
   font-size: 100px;
 }
 
 .degree-unit {
   font-size: 28px;
   position: relative;
-  /* top: -7px; */
+  top: -50px;
 }
 
 /* forecast section of app */

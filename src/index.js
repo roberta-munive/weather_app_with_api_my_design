@@ -27,6 +27,11 @@ function displayCurrentWeatherConditions(response) {
   let city = response.data.city;
   displayCityName(city);
 
+  // if city is undefined, api data will be undefined and don't need to look it up
+  if (!city) {
+    return;
+  }
+
   let currentTemperature = response.data.temperature.current;
   let currentTemperatureLocator = document.querySelector(
     "#current-temperature"
