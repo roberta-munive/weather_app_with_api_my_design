@@ -75,10 +75,10 @@ hr {
 }
 
 .current-conditions-icon {
-  height: 80px;
-  position: relative;
   left: -15px;
-  width: 80px;
+  position: relative;
+  height: 88px;
+  width: 88px;
 }
 
 .current-conditions-description {
