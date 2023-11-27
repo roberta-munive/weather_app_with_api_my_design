@@ -54,7 +54,7 @@ hr {
 }
 
 .search-btn {
-  border: 1px solid #38598b;
+  border: 1px solid rgb(56, 89, 139, 0.4);
   color: #38598b;
   margin-left: 5px;
   transition: all 150ms ease-in-out;
@@ -71,7 +71,6 @@ hr {
 
 .current-city {
   font-size: 44px;
-  margin-bottom: 0px;
 }
 
 .current-conditions {
@@ -84,7 +83,6 @@ hr {
 
 .current-conditions-description {
   font-size: 30px;
-  margin-bottom: 0px;
   margin-top: 5px;
 }
 .current-conditions-icon {
