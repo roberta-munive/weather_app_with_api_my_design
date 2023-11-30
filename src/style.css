@@ -135,6 +135,7 @@ hr {
 .single-day-forecast {
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid rgb(56, 89, 139, 0.3);
+  box-shadow: 5px 7px 5px rgba(109, 108, 109, 0.3);
   font-family: "Roboto Condensed", sans-serif;
   font-size: 18px;
   margin-bottom: 15px;
