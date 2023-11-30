@@ -71,6 +71,30 @@ function displayCurrentWeatherConditions(response) {
   currentConditionsIconLocator.src = currentConditionsIcon;
 }
 
+function displayMultiDayForecast() {
+  let forecastHtml = "";
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="col col-2 single-day-forecast card">
+  <p class="forecast-day-of-week">${day}</p>
+  <hr class="forecast-hr" />
+  <img
+    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+    class="forecast-conditions-icon" />
+  <p class="forecast-temperatures">
+    <span class="forecast-high-temperature">73°</span>
+    <span class="forecast-low-temperature">54°</span>
+  </p>
+</div>`;
+  });
+
+  let forecastHtmlLocator = document.querySelector("#multi-day-forecast");
+  forecastHtmlLocator.innerHTML = forecastHtml;
+}
+
 function formatAndDisplayDateAndTime(timeStamp) {
   // reference: https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
 
@@ -129,5 +153,7 @@ let defaultCity = "Paris";
 let searchBarLocator = document.querySelector("#search-bar");
 
 getCurrentWeatherConditions(defaultCity);
+
+displayMultiDayForecast();
 
 searchBarLocator.addEventListener("submit", getCity);
