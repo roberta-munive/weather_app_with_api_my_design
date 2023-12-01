@@ -69,26 +69,33 @@ function displayCurrentWeatherConditions(response) {
     "#current-conditions-icon"
   );
   currentConditionsIconLocator.src = currentConditionsIcon;
+
+  getForecast(city);
 }
 
-function displayMultiDayForecast() {
+function displayMultiDayForecast(response) {
+  console.log(response.data);
+
   let forecastHtml = "";
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  // JavaScript template to inject each individual forecast day card
   days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
-      `<div class="col col-2 single-day-forecast card">
-  <p class="forecast-day-of-week">${day}</p>
-  <hr class="forecast-hr" />
-  <img
+      `
+        <div class="col col-2 single-day-forecast card">
+          <p class="forecast-day-of-week">${day}</p>
+          <hr class="forecast-hr" />
+          <img
     src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
     class="forecast-conditions-icon" />
-  <p class="forecast-temperatures">
-    <span class="forecast-high-temperature">73°</span>
-    <span class="forecast-low-temperature">54°</span>
-  </p>
-</div>`;
+          <p class="forecast-temperatures">
+            <span class="forecast-high-temperature">73°</span>
+            <span class="forecast-low-temperature">54°</span>
+          </p>
+        </div>
+      `;
   });
 
   let forecastHtmlLocator = document.querySelector("#multi-day-forecast");
@@ -149,11 +156,16 @@ function getCurrentWeatherConditions(city) {
   axios.get(apiUrl).then(displayCurrentWeatherConditions);
 }
 
+function getForecast(city) {
+  let unit = "imperial";
+  let apiKey = "cf14b4c0f0c0d7a973ee3b4e430t2bo5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayMultiDayForecast);
+}
+
 let defaultCity = "Paris";
 let searchBarLocator = document.querySelector("#search-bar");
 
 getCurrentWeatherConditions(defaultCity);
-
-displayMultiDayForecast();
 
 searchBarLocator.addEventListener("submit", getCity);
