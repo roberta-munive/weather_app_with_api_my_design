@@ -79,12 +79,13 @@ function displayMultiDayForecast(response) {
 
   // JavaScript template to inject each individual forecast day card
   response.data.daily.forEach(function (day, index) {
-    if (index < numberOfForecastDays) {
+    // The day at index 0 is today. Want to start the forecast with tomorrows
+    if (index > 0 && index <= numberOfForecastDays) {
       forecastHtml =
         forecastHtml +
         `
       <div class="col col-2 single-day-forecast card">
-      <p class="forecast-day-of-week">Tue</p>
+      <p class="forecast-day-of-week">${formatDay(day.time)}</p>
       <hr class="forecast-hr" />
       <img
       src="${day.condition.icon_url}"
@@ -143,6 +144,16 @@ function formatAndDisplayDateAndTime(timeStamp) {
   let dayOfWeek = dateAndTimeStr.getDay();
   let dayOfWeekLocator = document.querySelector("#current-day-of-week");
   dayOfWeekLocator.innerHTML = days[dayOfWeek];
+}
+
+function formatDay(timeStamp) {
+  // Need to multiply timestamp by 1000 so that the argument is in milliseconds, not seconds
+  let date = new Date(timeStamp * 1000);
+
+  // Day of week is returned as a number 0 through 6.  Convert to 3-letter word
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
 }
 
 function getCity(event) {
