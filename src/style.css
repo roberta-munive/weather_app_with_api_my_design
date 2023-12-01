@@ -6,14 +6,12 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  /* background: linear-gradient(to top, #09203f 0%, #537895 100%); */
   background-color: #1a355b;
   margin: 0 auto;
   padding: 20px;
 }
 
 hr {
-  /* border-color: #d3d6db; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -24,7 +22,6 @@ hr {
 }
 
 .weather-watch-card-body {
-  /* background: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
   background: linear-gradient(
     180.3deg,
     rgb(214, 224, 255) 37.2%,
@@ -90,7 +87,7 @@ hr {
 .current-conditions-icon {
   left: -15px;
   position: relative;
-  height:100px;
+  height: 100px;
   width: 100px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -118,7 +115,7 @@ hr {
 
 /* forecast section of app */
 
-.forecast-conditions-icon{
+.forecast-conditions-icon {
   display: block;
   margin: 0 auto;
   height: 88px;
