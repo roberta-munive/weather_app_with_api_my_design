@@ -118,6 +118,13 @@ hr {
 
 /* forecast section of app */
 
+.forecast-conditions-icon{
+  display: block;
+  margin: 0 auto;
+  height: 88px;
+  width: 88px;
+}
+
 .forecast-day-of-week {
   margin-top: 16px;
   text-align: center;
