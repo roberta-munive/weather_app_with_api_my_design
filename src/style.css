@@ -90,8 +90,8 @@ hr {
 .current-conditions-icon {
   left: -15px;
   position: relative;
-  height: 88px;
-  width: 88px;
+  height:100px;
+  width: 100px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
