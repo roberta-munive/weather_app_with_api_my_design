@@ -79,7 +79,6 @@ function displayMultiDayForecast(response) {
 
   // JavaScript template to inject each individual forecast day card
   response.data.daily.forEach(function (day, index) {
-    
     if (index < numberOfForecastDays) {
       forecastHtml =
         forecastHtml +
@@ -88,7 +87,7 @@ function displayMultiDayForecast(response) {
       <p class="forecast-day-of-week">Tue</p>
       <hr class="forecast-hr" />
       <img
-      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+      src="${day.condition.icon_url}"
       class="forecast-conditions-icon" />
       <p class="forecast-temperatures">
       <span class="forecast-high-temperature">${Math.round(
