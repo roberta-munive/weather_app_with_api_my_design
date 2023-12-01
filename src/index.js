@@ -74,28 +74,33 @@ function displayCurrentWeatherConditions(response) {
 }
 
 function displayMultiDayForecast(response) {
-  console.log(response.data);
-
+  let numberOfForecastDays = 5;
   let forecastHtml = "";
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
 
   // JavaScript template to inject each individual forecast day card
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
-        <div class="col col-2 single-day-forecast card">
-          <p class="forecast-day-of-week">${day}</p>
-          <hr class="forecast-hr" />
-          <img
-    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-    class="forecast-conditions-icon" />
-          <p class="forecast-temperatures">
-            <span class="forecast-high-temperature">73°</span>
-            <span class="forecast-low-temperature">54°</span>
-          </p>
-        </div>
+  response.data.daily.forEach(function (day, index) {
+    
+    if (index < numberOfForecastDays) {
+      forecastHtml =
+        forecastHtml +
+        `
+      <div class="col col-2 single-day-forecast card">
+      <p class="forecast-day-of-week">Tue</p>
+      <hr class="forecast-hr" />
+      <img
+      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+      class="forecast-conditions-icon" />
+      <p class="forecast-temperatures">
+      <span class="forecast-high-temperature">${Math.round(
+        day.temperature.maximum
+      )}°</span>
+      <span class="forecast-low-temperature">${Math.round(
+        day.temperature.minimum
+      )}°</span>
+      </p>
+      </div>
       `;
+    }
   });
 
   let forecastHtmlLocator = document.querySelector("#multi-day-forecast");
