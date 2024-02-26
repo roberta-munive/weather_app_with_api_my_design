@@ -16,14 +16,11 @@ hr {
   margin-bottom: 30px;
 }
 
-.app-container{
-  max-width: 1200px;
-}
-
 .card {
   border: 2px solid #d3d6db;
   border-radius: 10px;
 }
+
 
 .weather-watch-card-body {
   background: linear-gradient(
