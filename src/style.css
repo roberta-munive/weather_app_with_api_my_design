@@ -21,7 +21,6 @@ hr {
   border-radius: 10px;
 }
 
-
 .weather-watch-card-body {
   background: linear-gradient(
     180.3deg,
@@ -121,6 +120,7 @@ hr {
   margin: 0 auto;
   height: 88px;
   width: 88px;
+  /* aspect-ratio: 1 / 1; */
 }
 
 .forecast-day-of-week {
@@ -136,10 +136,15 @@ hr {
   opacity: 0.7;
 }
 
-.forecast-temperatures,
-.multi-day-forecast {
+.forecast-temperatures {
   display: flex;
   justify-content: space-around;
+}
+
+.multi-day-forecast {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .single-day-forecast {
@@ -164,4 +169,66 @@ footer {
   margin: 20px;
   opacity: 0.7;
   text-align: center;
+}
+
+@media (max-width: 760px) {
+  .weather-watch-card-body {
+    display: block;
+    margin: 20px auto;
+  }
+
+  /* search section of app */
+
+  .search-bar {
+    flex-direction: column;
+    /* align-content: center; */
+    align-items: center;
+    /* justify-content: center; */
+    margin: 20px;
+  }
+
+  .search-bar-input,
+  .search-btn {
+    border-radius: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 auto;
+  }
+
+  .search-bar-input {
+    border-radius: ;
+    width: 80%;
+  }
+
+  .search-btn {
+    margin-top: 10px;
+    width: 40%;
+  }
+
+  /* current conditions section */
+  .current-conditions {
+    align-items: center;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: scroll;
+    text-align: center;
+  }
+
+  /* forecast section of app */
+  .multi-day-forecast {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    /* justify-items: center; */
+  }
+
+  .single-day-forecast {
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+  }
 }

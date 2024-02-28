@@ -84,7 +84,7 @@ function displayMultiDayForecast(response) {
       forecastHtml =
         forecastHtml +
         `
-      <div class="col col-2 single-day-forecast card">
+      <div class="col single-day-forecast card">
       <p class="forecast-day-of-week">${formatDay(day.time)}</p>
       <hr class="forecast-hr" />
       <img
