@@ -216,7 +216,7 @@ footer {
     grid-template-columns: 1fr;
     margin: 0 auto;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     text-align: center;
   }
 
@@ -224,7 +224,6 @@ footer {
   .multi-day-forecast {
     grid-template-columns: 1fr;
     grid-gap: 20px;
-    /* justify-items: center; */
   }
 
   .single-day-forecast {
